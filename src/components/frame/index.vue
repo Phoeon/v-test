@@ -1,30 +1,27 @@
 <template>
-	<div id="frame">
+	<div id="frame" class="frame">
 		<slot name="frame-header">
 			<FrameHeader></FrameHeader>
 		</slot>
 		<slot name="frame-body">
-			<main class="frame-body">
-				<slot name="frame-sidebar">
-					<div class="frame-sidebar">frame-sidebar</div>
-				</slot>
-				<slot name="frame-main">
-					<div class="frame-main">frame-main</div>
-				</slot>
-			</main>
+			<FrameBody></FrameBody>
 		</slot>
 		<slot name="frame-footer">
-			<footer class="frame-footer">frame-footer</footer>
+			<footer class="frame-footer"></footer>
 		</slot>
 	</div>
 </template>
 <script>
-import FrameHeader from './frame-header';
+import FrameHeader from './frame-header/index';
+import FrameBody from './frame-body/index';
 export default {
 	name : "frame",
-	components : {FrameHeader}
+	components : {FrameHeader,FrameBody}
 }
 </script>
 <style name="scoped">
-
+	.frame{
+		position:relative;
+		height:100%;
+	}
 </style>

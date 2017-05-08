@@ -3,12 +3,22 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import './less/base.less';
 Vue.config.productionTip = false
+router.beforeEach((to,from,next)=>{
+	let auth=sessionStorage.getItem("session_id")
+	if(to.path=="/login"&&auth){
+		return next({
+			path:"/dashboard"
+		})
+	}else{
+		return next()
+	} 
+})
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#frame',
   router,
   template: '<App/>',
   components: { App }

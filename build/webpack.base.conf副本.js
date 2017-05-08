@@ -2,20 +2,11 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var glob = require("glob");
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-function getEntries(){
-  var entries= {};
-  glob.sync(resolve('src/views/**/index.vue')).forEach(function(path){
-    var k = path.split('views')[1].replace(/index.*?$/,"").replace(/[^\w]/g,"");
-    entries[k] = resolve(path);
-  })
-  return entries;
-}
-console.log(getEntries())
 module.exports = {
   entry: {
     app: './src/main.js'
