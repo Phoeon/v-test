@@ -14,7 +14,7 @@
 <script>
 import FrameHeader from './frame-header/index';
 import FrameBody from './frame-body/index';
-export default {
+export default { 
 	name : "frame",
 	components : {FrameHeader,FrameBody}
 }
